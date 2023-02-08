@@ -31,7 +31,7 @@
     </div>
 
     <script type="text/babel">
-
+        // contoh class tanpa JSX
         class Button extends React.Component {
             render() {
                 const btn = React.createElement('button', {class: 'btn btn-primary'}, 'button primary')
@@ -50,8 +50,31 @@
             }
         }
 
+        // contoh class dengan JSX
+        class Buttonjsx extends React.Component {
+            render() {
+                return <button className={"btn btn-primary"}>Primary Button</button>
+            }
+        }
+
+        class Cardsjsx extends React.Component {
+            render() {
+                const card = (
+                    <div class={"card"}>
+                        <div className={"card-body"}>
+                            <h5 className={"card-title"}>ini card title</h5>
+                            <p className={"card-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus eligendi deserunt soluta, quia et sapiente? Totam soluta ex perspiciatis minus esse sunt hic est!</p>
+                            <a href="#" className={"btn btn-primary"}>download</a>
+                        </div>
+                    </div>
+                )
+                return card
+            }
+        }
+
         // ReactDOM.render(<Button/>, document.getElementById('app'));
-        ReactDOM.render(<Cards/>, document.getElementById('app'));
+        // ReactDOM.render(<Buttonjsx/>, document.getElementById('app'));
+        ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
     </script>
 
     <!-- BOOTSTRAP JS -->
