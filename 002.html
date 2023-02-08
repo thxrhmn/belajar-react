@@ -38,7 +38,20 @@
                 return btn
             }
         }
+
+        class Cards extends React.Component {
+            render() { 
+                const cardTitle = React.createElement('h3', {class: 'card-title'}, 'Ini adalah title')
+                const cardText = React.createElement('p', {class: 'card-text'}, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint aperiam ea illum accusantium rem repellendus reiciendis consequuntur obcaecati nulla.') 
+                const link = React.createElement('a', {href: 'google.com', class: 'btn btn-primary'}, 'download')
+                const cardBody = React.createElement('div', {class: 'card-body'}, cardTitle, cardText, link )
+                const card = React.createElement('div', {class: 'card'}, cardBody )
+                return card
+            }
+        }
+
         ReactDOM.render(<Button/>, document.getElementById('app'));
+        ReactDOM.render(<Cards/>, document.getElementById('app'));
     </script>
 
     <!-- BOOTSTRAP JS -->
