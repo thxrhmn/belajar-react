@@ -15,8 +15,11 @@
 <body>
     
     <div class="row">
-        <div class="col-6 p-5">
-            <div id="app"></div>
+        <div class="col-6">
+            <div id="app">
+                <div id="navbar"></div>
+                <div id="card"></div>
+            </div>
         </div>
     </div>
 
@@ -54,20 +57,60 @@
             return <button className="btn btn-primary">Primary Button 2</button>
         }
 
-        // 2.c masih Arrow Function Component
+        // 2.c masih Arrow Function Component | memanggil component Buttonjsx kedalam Component CardFunction
         const CardFunction = () => {
             return (
-                <div className="card">
+                <div className="card mx-3" style={{width: "19rem"}}>
                     <div className="card-body">
                         <h5 className="card-title">Ini card title</h5>
                         <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non eius rerum impedit, obcaecati quae nam enim repudiandae ad adipisci!</p>
-                        <a href="#" className="btn btn-primary">Download</a>
+                        <a href="#" className="btn btn-primary m-2">Download</a>
+                        <Buttonjsx/>
                     </div>
                 </div>
             )
         }
 
-        ReactDOM.render(<CardFunction/>, document.getElementById('app'));
+        const Navbar = () => {
+            return (
+                <nav className="navbar navbar-expand-lg bg-body-tertiary mb-2">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="#">Navbar</a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Link</a>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                    <ul className="dropdown-menu">
+                                        <li><a className="dropdown-item" href="#">Action</a></li>
+                                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link disabled">Disabled</a>
+                                </li>
+                            </ul>
+                            <form className="d-flex" role="search">
+                                <button className="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            )
+        }
+
+        ReactDOM.render(<Navbar/>, document.getElementById('navbar'));
+        ReactDOM.render(<CardFunction/>, document.getElementById('card'));
+
         // ReactDOM.render(<Button2/>, document.getElementById('app'));
         // ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
 
