@@ -36,7 +36,7 @@
                         <div className="card-body">
                             <h5 className="card-title">ini card title</h5>
                             <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus eligendi deserunt soluta, quia et sapiente? Totam soluta ex perspiciatis minus esse sunt hic est!</p>
-                            <a href="#" className="btn btn-primary">download</a>
+                            <a href="#" className="btn btn-primary">Download</a>
                         </div>
                     </div>
                 )
@@ -54,7 +54,21 @@
             return <button className="btn btn-primary">Primary Button 2</button>
         }
 
-        ReactDOM.render(<Button2/>, document.getElementById('app'));
+        // 2.c masih Arrow Function Component
+        const CardFunction = () => {
+            return (
+                <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">Ini card title</h5>
+                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non eius rerum impedit, obcaecati quae nam enim repudiandae ad adipisci!</p>
+                        <a href="#" className="btn btn-primary">Download</a>
+                    </div>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<CardFunction/>, document.getElementById('app'));
+        // ReactDOM.render(<Button2/>, document.getElementById('app'));
         // ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
 
     </script>
