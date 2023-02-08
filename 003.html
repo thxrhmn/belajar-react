@@ -21,26 +21,8 @@
     </div>
 
     <script type="text/babel">
-        // contoh class component tanpa JSX
-        class Button extends React.Component {
-            render() {
-                const btn = React.createElement('button', {class: 'btn btn-primary'}, 'button primary')
-                return btn
-            }
-        }
 
-        class Cards extends React.Component {
-            render() { 
-                const cardTitle = React.createElement('h3', {class: 'card-title'}, 'Ini adalah title')
-                const cardText = React.createElement('p', {class: 'card-text'}, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint aperiam ea illum accusantium rem repellendus reiciendis consequuntur obcaecati nulla.') 
-                const link = React.createElement('a', {href: 'google.com', class: 'btn btn-primary'}, 'download')
-                const cardBody = React.createElement('div', {class: 'card-body'}, cardTitle, cardText, link )
-                const card = React.createElement('div', {class: 'card'}, cardBody )
-                return card
-            }
-        }
-
-        // contoh class component dengan JSX
+        // 1. Class Component dengan JSX
         class Buttonjsx extends React.Component {
             render() {
                 return <button className="btn btn-primary">Primary Button</button>
@@ -62,9 +44,19 @@
             }
         }
 
-        // ReactDOM.render(<Button/>, document.getElementById('app'));
-        // ReactDOM.render(<Buttonjsx/>, document.getElementById('app'));
-        ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
+        // 2. Function Component | tidak perlu menggunakan methode render | langsung return aja
+        function Button() {
+            return <button className="btn btn-primary">Primary Button</button>
+        }
+
+        // 2.b Arrow Function Component
+        const Button2 = () => {
+            return <button className="btn btn-primary">Primary Button 2</button>
+        }
+
+        ReactDOM.render(<Button2/>, document.getElementById('app'));
+        // ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
+
     </script>
 
     <!-- BOOTSTRAP JS -->
