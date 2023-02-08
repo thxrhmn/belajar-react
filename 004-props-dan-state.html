@@ -13,15 +13,20 @@
     <title>Belajar Props dan State React</title>
 </head>
 <body>
-
-    <div id="app"></div>
+    <div class="row">
+        <div class="col-8 p-5">
+            <div id="app"></div>
+        </div>
+    </div>
 
     <script type="text/babel">
 
-        // 1. Class Component dengan JSX
+        // props bisa digunakan berulang kali || read-only / tidak bisa dirubah
+        // state digunakan untuk menghandle data didalam component yang terus berubah | hanya bisa diakses dimana state itu dibuat | tidak bisa diakses dari component lain
+        // 
         class Buttonjsx extends React.Component {
             render() {
-                return <button className="btn btn-primary">Primary Button</button>
+                return <button className="btn btn-primary m-1">{this.props.text}</button>
             }
         }
 
@@ -32,7 +37,11 @@
                         <div className="card-body">
                             <h5 className="card-title">ini card title</h5>
                             <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus eligendi deserunt soluta, quia et sapiente? Totam soluta ex perspiciatis minus esse sunt hic est!</p>
-                            <a href="#" className="btn btn-primary">Download</a>
+                            <Buttonjsx text="Ini Contoh Props 1"/>
+                            <Buttonjsx text="2"/>
+                            <Buttonjsx text="3"/>
+                            <Buttonjsx text="4"/>
+                            <Buttonjsx text="5"/>
                         </div>
                     </div>
                 )
@@ -40,12 +49,10 @@
             }
         }
 
-        // 2.b Arrow Function Component | javascript terbaru | di rekomendasikan menggunakan ini
         const Button2 = () => {
             return <button className="btn btn-primary">Primary Button 2</button>
         }
 
-        // 2.c masih Arrow Function Component || memanggil component Buttonjsx kedalam Component CardFunction
         const CardFunction = () => {
             return (
                 <div className="card mx-3" style={{width: "19rem"}}>
@@ -53,17 +60,13 @@
                         <h5 className="card-title">Ini card title</h5>
                         <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non eius rerum impedit, obcaecati quae nam enim repudiandae ad adipisci!</p>
                         <a href="#" className="btn btn-primary m-2">Download</a>
-                        <Buttonjsx/>
+                        <Button2/>
                     </div>
                 </div>
             )
         }
 
-        // ReactDOM.render(<Navbar/>, document.getElementById('navbar'));
-        // ReactDOM.render(<CardFunction/>, document.getElementById('card'));
-        // ReactDOM.render(<Button2/>, document.getElementById('app'));
-        // ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
-
+        ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
         
 
     </script>
