@@ -21,27 +21,49 @@
 
     <script type="text/babel">
 
+        // PROPS dan STATE memiliki cara kerja berbeda
+        // props = objek untuk menyimpan data yang diterima dari luar component
+        // state = objek untuk menyimpan data didalam component
+
         // props bisa digunakan berulang kali || read-only / tidak bisa dirubah
         // state digunakan untuk menghandle data didalam component yang terus berubah | hanya bisa diakses dimana state itu dibuat | tidak bisa diakses dari component lain
-        // 
         class Buttonjsx extends React.Component {
             render() {
                 return <button className="btn btn-primary m-1">{this.props.text}</button>
             }
         }
 
+        // constructor adalah fungsi atau methode khusus pada class | dieksekusi ketika objek dibuat atau component digunakan
+        // fungsi super() didalam constructor | akan mengeksekusi constructor dari induk class = react component
+        // this.state = cara mengisialisasi state
+        // buat function ubahJudul didalam component | untuk merubah state
+        // state = function didalam component
         class Cardsjsx extends React.Component {
+            // ini bagian data
+            constructor() {
+                super();
+                this.state = {
+                    Judul : "Ini adalah Judul didalam state",
+                    Subjudul : "Ini adalah Subjudul didalam State"
+                }
+            }
+
+            // ini bagian function / methode
+            ubahJudul = () => {
+                this.setState({
+                    Judul : "Aku State yang berubah"
+                })
+            }
+
+            // ini bagian function render
             render() {
                 const card = (
                     <div class="card">
                         <div className="card-body">
-                            <h5 className="card-title">ini card title</h5>
-                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus eligendi deserunt soluta, quia et sapiente? Totam soluta ex perspiciatis minus esse sunt hic est!</p>
+                            <h5 className="card-title">{this.state.Judul}</h5>
+                            <p className="card-text">{this.state.Subjudul}</p>
                             <Buttonjsx text="Ini Contoh Props 1"/>
-                            <Buttonjsx text="2"/>
-                            <Buttonjsx text="3"/>
-                            <Buttonjsx text="4"/>
-                            <Buttonjsx text="5"/>
+                            <button className="btn btn-warning" onClick={this.ubahJudul}>Ubah Button</button>
                         </div>
                     </div>
                 )
@@ -68,7 +90,6 @@
 
         ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
         
-
     </script>
 
     <!-- BOOTSTRAP JS -->
