@@ -27,6 +27,7 @@
 
         // props bisa digunakan berulang kali || read-only / tidak bisa dirubah
         // state digunakan untuk menghandle data didalam component yang terus berubah | hanya bisa diakses dimana state itu dibuat | tidak bisa diakses dari component lain
+        
         class Buttonjsx extends React.Component {
             render() {
                 return <button className="btn btn-primary m-1">{this.props.text}</button>
@@ -38,7 +39,9 @@
         // this.state = cara mengisialisasi state
         // buat function ubahJudul didalam component | untuk merubah state
         // state = function didalam component
+
         class Cardsjsx extends React.Component {
+            
             // ini bagian data
             constructor() {
                 super();
