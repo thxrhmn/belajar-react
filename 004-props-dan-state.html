@@ -22,8 +22,15 @@
     <script type="text/babel">
 
         // PROPS dan STATE memiliki cara kerja berbeda
+        // state dan props adalah object khusus yang menyimpan data component
         // props = objek untuk menyimpan data yang diterima dari luar component
-        // state = objek untuk menyimpan data didalam component
+        // props = singkatan properties
+        // state = objek untuk menyimpan data didalam component | handle data dalam component
+
+        // stateless = component yang tidak memiliki state
+        // statefull = component yang memiliki state
+        // dumb = component yang tidak memiliki state seperti stateless component
+        // smart = component yang memiliki state seperti statefull component
 
         // props bisa digunakan berulang kali || read-only / tidak bisa dirubah
         
@@ -81,7 +88,7 @@
         }
 
         // contoh state didalam arrow function component
-        
+
         const CardFunction = () => {
 
             const [judul, setState] = React.useState('judul card menggunakan React Hook');
