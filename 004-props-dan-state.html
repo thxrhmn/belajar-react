@@ -26,22 +26,24 @@
         // state = objek untuk menyimpan data didalam component
 
         // props bisa digunakan berulang kali || read-only / tidak bisa dirubah
-        // state digunakan untuk menghandle data didalam component yang terus berubah | hanya bisa diakses dimana state itu dibuat | tidak bisa diakses dari component lain
         
         class Buttonjsx extends React.Component {
             render() {
                 return <button className="btn btn-primary m-1">{this.props.text}</button>
             }
         }
-
+        
+        // state digunakan untuk menghandle data didalam component yang terus berubah | hanya bisa diakses dimana state itu dibuat | tidak bisa diakses dari component lain
         // constructor adalah fungsi atau methode khusus pada class | dieksekusi ketika objek dibuat atau component digunakan
         // fungsi super() didalam constructor | akan mengeksekusi constructor dari induk class = react component
         // this.state = cara mengisialisasi state
         // buat function ubahJudul didalam component | untuk merubah state
         // state = function didalam component
 
+        // contoh state didalam class component
+
         class Cardsjsx extends React.Component {
-            
+
             // ini bagian data
             constructor() {
                 super();
@@ -78,12 +80,17 @@
             return <button className="btn btn-primary">Primary Button 2</button>
         }
 
+        // contoh state didalam arrow function component
+        
         const CardFunction = () => {
+
+            const [judul, setState] = React.useState('judul card menggunakan React Hook');
+
             return (
                 <div className="card mx-3" style={{width: "19rem"}}>
                     <div className="card-body">
-                        <h5 className="card-title">Ini card title</h5>
-                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non eius rerum impedit, obcaecati quae nam enim repudiandae ad adipisci!</p>
+                        <h5 className="card-title">{judul}</h5>
+                        <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto facere ab provident aut similique reprehenderit! Sunt unde cum voluptates sint.</p>
                         <a href="#" className="btn btn-primary m-2">Download</a>
                         <Button2/>
                     </div>
@@ -91,7 +98,8 @@
             )
         }
 
-        ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
+        // ReactDOM.render(<Cardsjsx/>, document.getElementById('app'));
+        ReactDOM.render(<CardFunction/>, document.getElementById('app'));
         
     </script>
 
